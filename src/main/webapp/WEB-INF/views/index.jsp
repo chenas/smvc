@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -23,6 +24,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   this is dymanic <br>
     ${theModelKey} <br>
-    ${Service}
+    ${Service}<br>
+    ${user.id} <br> ${user.name} <br>
+    
+    <c:forEach items="${userList}" var="user">
+    	<c:out value="${user.id}" />
+    	<c:out value="${user.name}" />   <br>
+    </c:forEach>
+    <c:forEach items="${userList2}" var="user">
+	    	<c:out value="${user.id}" />
+	    	<c:out value="${user.name}" /> <br>
+    	<c:forEach items="${user.subIndexs}" var="sub">
+	    	--<c:out value="${sub.id}" /> 
+	    	--<c:out value="${sub.name}" />   <br>
+    	</c:forEach>
+    </c:forEach>
   </body>
 </html>

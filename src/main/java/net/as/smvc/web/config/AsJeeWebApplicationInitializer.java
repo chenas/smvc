@@ -35,7 +35,6 @@ public class AsJeeWebApplicationInitializer implements WebApplicationInitializer
 
     /**
      * Factory method to create {@link AnnotationConfigWebApplicationContext} instances. 
-     * ע������web������
      * @param annotatedClasses
      * @return
      */
