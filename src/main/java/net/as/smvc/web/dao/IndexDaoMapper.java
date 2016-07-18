@@ -32,7 +32,7 @@ public interface IndexDaoMapper {
 	@Select("select * from t_sub where parentId=#{id}")
 	List<SubIndex> findSubByParentId(String id);
 
-	@Select("select p.id, p.name from t_user p left join t_sub s on p.id=s.parentId")
+	@Select("select p.id, p.name from t_user p")
 	@Results({ @Result(id = true, column = "id", property = "id"),
 			@Result(property = "subIndexs", column = "id", many = @Many(select = "net.as.smvc.web.dao.IndexDaoMapper.findSubByParentId")) })
 	public List<IndexEntity> getWithChildren();
